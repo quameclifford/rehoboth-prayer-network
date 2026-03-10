@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -72,6 +72,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   <a href="#sermons">Sermons</a>
   <a href="#flyers">Flyers</a>
   <a href="#giving">Giving</a>
+  <a href="#admin">Admin</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -227,6 +228,40 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
       </div>
     </div>
   </div>
+  <div class="container" style="margin-top:20px">
+    <div class="card">
+      <h3 style="margin-top:0">Giving / Partner Form</h3>
+      <form id="partnerForm" class="form-grid">
+        <input class="input" name="full_name" placeholder="Full name" required>
+        <input class="input" name="contact" placeholder="Phone or email" required>
+        <select class="select" name="partner_type" required>
+          <option value="">Support type</option>
+          <option>Monthly Covenant Partner</option>
+          <option>One-time Offering</option>
+          <option>Project Support</option>
+          <option>Media Support</option>
+        </select>
+        <textarea class="textarea" name="notes" placeholder="Tell us how you want to support the ministry"></textarea>
+        <button class="button dark" type="submit">Submit Partner Form</button>
+      </form>
+      <div id="partnerNotice" class="notice">Your giving / partner form has been submitted.</div>
+    </div>
+  </div>
+</section>
+
+<section id="admin">
+  <div class="container">
+    <h2>Admin</h2>
+    <div class="card admin-box">
+      <p><strong>Ministry Dashboard Access</strong></p>
+      <p class="info">This section is for leadership access to manage prayer requests, testimonies, sermons, flyers, and broadcast updates.</p>
+      <div class="form-grid" style="max-width:520px">
+        <input class="input" type="email" placeholder="Admin email">
+        <input class="input" type="password" placeholder="Password">
+        <button class="button dark" type="button">Admin Login</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 
@@ -306,6 +341,28 @@ document.getElementById('testimonyForm').addEventListener('submit', function(e){
   e.preventDefault();
   this.reset();
   document.getElementById('testimonyNotice').style.display='block';
+});
+
+document.getElementById('partnerForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const form = new FormData(this);
+  const payload = {
+    id: crypto.randomUUID(),
+    full_name: form.get('full_name'),
+    contact: form.get('contact'),
+    partner_type: form.get('partner_type'),
+    notes: form.get('notes'),
+    created_at: new Date().toISOString()
+  };
+
+  try {
+    await saveRecord('partners', payload);
+  } catch (error) {
+    console.error(error);
+  }
+
+  this.reset();
+  document.getElementById('partnerNotice').style.display='block';
 });
 </script>
 </body>
