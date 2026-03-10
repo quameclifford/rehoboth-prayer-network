@@ -5,53 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rehoboth Prayer Network</title>
 <style>
-:root{--bg:#f5f7fb;--card:#ffffff;--text:#1e293b;--muted:#64748b;--dark:#0f172a;--line:#e2e8f0;--gold:#facc15}
-*{box-sizing:border-box}
+:root{--bg:#f5f7fb;--card:#ffffff;--text:#1e293b;--muted:#64748b;--dark:#0f172a;--line:#e2e8f0;--gold:#facc15;--green:#16a34a}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
 body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.6}
 header{background:linear-gradient(rgba(15,23,42,.82),rgba(15,23,42,.82)),url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1600&q=80') center/cover;color:white;padding:60px 20px}
-.container{max-width:1150px;margin:auto}
-.hero{display:grid;grid-template-columns:1.3fr .9fr;gap:30px;align-items:center}
-.logo-wrap{display:flex;align-items:center;gap:18px;margin-bottom:22px}
-.logo{width:86px;height:86px;border-radius:24px;object-fit:contain;background:#fff;padding:8px;border:1px solid rgba(255,255,255,.2)}
+.container{max-width:1150px;margin:auto}.hero{display:grid;grid-template-columns:1.3fr .9fr;gap:30px;align-items:center}
+.logo-wrap{display:flex;align-items:center;gap:18px;margin-bottom:22px}.logo{width:86px;height:86px;border-radius:24px;object-fit:contain;background:#fff;padding:8px;border:1px solid rgba(255,255,255,.2)}
 .badge{display:inline-block;background:rgba(255,255,255,.1);padding:8px 14px;border-radius:999px;font-size:14px}
-h1{font-size:48px;line-height:1.1;margin:0 0 16px}
-.hero p{font-size:18px;color:#e2e8f0}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.button{display:inline-block;padding:12px 20px;background:#fff;color:var(--dark);border-radius:12px;text-decoration:none;font-weight:bold}
-.button.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
-.side-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:24px;backdrop-filter:blur(10px)}
-.side-card h3{margin-top:0;font-size:28px}
-.side-card .small{color:#cbd5e1;font-size:14px}
-.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
-.quick div{background:rgba(255,255,255,.08);padding:14px;border-radius:14px}
-nav{position:sticky;top:0;background:white;padding:12px 10px;border-bottom:1px solid var(--line);text-align:center;z-index:10}
-nav a{display:inline-block;margin:6px;padding:8px 14px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:#334155;font-size:14px;background:#fff}
-section{padding:60px 20px}
-section h2{font-size:36px;margin:0 0 10px}
-.section-sub{max-width:800px;color:var(--muted);font-size:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 2px 10px rgba(15,23,42,.03)}
-.grid{display:grid;gap:20px}
-.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.info{color:var(--muted)}
-.highlight{background:#fff8db;border:2px solid var(--gold);padding:16px;border-radius:16px;text-align:center}
-.highlight .label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#a16207;font-weight:bold}
-.highlight .number{font-size:34px;font-weight:800;letter-spacing:.04em;color:var(--dark);margin-top:5px}
-.logo-card{text-align:center}
-.logo-card img{max-width:120px;width:100%;height:auto;object-fit:contain}
-.flyer-card{overflow:hidden;padding:0}
-.flyer-card img{display:block;width:100%;height:380px;object-fit:cover;object-position:top}
-.flyer-text{padding:16px}
-.prayer-time{font-size:28px;font-weight:800}
-.contact-list p{margin:10px 0}
-.qr{width:100%;max-width:240px;border-radius:16px;border:1px solid var(--line);display:block;margin:auto}
-footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;margin-top:20px}
-.footer-text{color:#cbd5e1}
-@media (max-width:900px){.hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}h1{font-size:38px}.flyer-card img{height:320px}}
+h1{font-size:48px;line-height:1.1;margin:0 0 16px}.hero p{font-size:18px;color:#e2e8f0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.button{display:inline-block;padding:12px 20px;background:#fff;color:var(--dark);border-radius:12px;text-decoration:none;font-weight:bold;border:none;cursor:pointer}
+.button.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)} .button.dark{background:var(--dark);color:#fff} .button.green{background:var(--green);color:#fff}
+.side-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:24px;backdrop-filter:blur(10px)} .side-card h3{margin-top:0;font-size:28px}.side-card .small{color:#cbd5e1;font-size:14px}
+.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.quick div{background:rgba(255,255,255,.08);padding:14px;border-radius:14px}
+nav{position:sticky;top:0;background:white;padding:12px 10px;border-bottom:1px solid var(--line);text-align:center;z-index:10} nav a{display:inline-block;margin:6px;padding:8px 14px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:#334155;font-size:14px;background:#fff}
+section{padding:60px 20px} section h2{font-size:36px;margin:0 0 10px}.section-sub{max-width:800px;color:var(--muted);font-size:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 2px 10px rgba(15,23,42,.03)} .grid{display:grid;gap:20px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.info{color:var(--muted)} .highlight{background:#fff8db;border:2px solid var(--gold);padding:16px;border-radius:16px;text-align:center}.highlight .label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#a16207;font-weight:bold}.highlight .number{font-size:34px;font-weight:800;letter-spacing:.04em;color:var(--dark);margin-top:5px}
+.logo-card{text-align:center}.logo-card img{max-width:120px;width:100%;height:auto;object-fit:contain}.flyer-card{overflow:hidden;padding:0}.flyer-card img{display:block;width:100%;height:380px;object-fit:cover;object-position:top}.flyer-text{padding:16px}
+.prayer-time{font-size:28px;font-weight:800}.contact-list p{margin:10px 0}.qr{width:100%;max-width:240px;border-radius:16px;border:1px solid var(--line);display:block;margin:auto}
+.form-grid{display:grid;gap:14px}.input,.textarea,.select{width:100%;padding:14px 16px;border:1px solid #cbd5e1;border-radius:12px;font-size:15px;background:#fff}.textarea{min-height:130px;resize:vertical}.notice{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:#ecfdf5;color:#166534;border:1px solid #86efac}
+.broadcast-banner{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff}
+.sermon-list .card h3{margin:0 0 8px}.admin-box{background:#fff;border:1px dashed #94a3b8}
+.floating-whatsapp{position:fixed;right:18px;bottom:18px;background:#25D366;color:white;text-decoration:none;padding:14px 18px;border-radius:999px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.15);z-index:99}
+footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;margin-top:20px}.footer-text{color:#cbd5e1}
+@media (max-width:900px){.hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}h1{font-size:38px}.flyer-card img{height:320px}.floating-whatsapp{left:18px;right:18px;text-align:center}}
 </style>
 </head>
 <body>
+<a class="floating-whatsapp" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20prayer%20support." target="_blank">WhatsApp Prayer Help</a>
 <header>
   <div class="container hero">
     <div>
@@ -63,7 +44,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
         </div>
       </div>
       <h1>Raising Altars of Prayer, Revival and Counsel Across Nations</h1>
-      <p>Join Rehoboth Prayer Network for global dawn prayers, prayer support, counseling, partnership, prophetic teachings, and ministry bulletins.</p>
+      <p>Join Rehoboth Prayer Network for global dawn prayers, prayer support, counseling, partnership, prophetic teachings, testimonies, and ministry bulletins.</p>
       <div class="hero-actions">
         <a class="button" href="https://zoom.us/wc/join/5489802963" target="_blank">Join Prayer Room</a>
         <a class="button alt" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20prayer%20support." target="_blank">Chat on WhatsApp</a>
@@ -85,8 +66,13 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
 <nav>
   <a href="#about">About</a>
   <a href="#prayer-times">Prayer Times</a>
+  <a href="#broadcast">Broadcast</a>
+  <a href="#prayer-request">Prayer Request</a>
+  <a href="#testimonies">Testimony</a>
+  <a href="#sermons">Sermons</a>
   <a href="#flyers">Flyers</a>
   <a href="#giving">Giving</a>
+  <a href="#admin">Admin</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -95,9 +81,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
     <div>
       <h2>About the Ministry</h2>
       <p class="section-sub">Rehoboth Prayer Network is a prophetic prayer ministry devoted to raising a global altar of prayer through intercession, spiritual counsel, biblical teaching, and revival gatherings.</p>
-      <div class="card info">
-        Through Global Dawn Prayers, daily prayer bulletins, counseling support, and strategic prayer gatherings, the ministry serves individuals, families, workers, and leaders across nations.
-      </div>
+      <div class="card info">Through Global Dawn Prayers, daily prayer bulletins, counseling support, and strategic prayer gatherings, the ministry serves individuals, families, workers, and leaders across nations.</div>
     </div>
     <div class="grid">
       <div class="card"><strong>Vision</strong><br><span class="info">To raise a global altar of prayer where lives are transformed, destinies are restored, and nations are impacted through intercession.</span></div>
@@ -123,27 +107,99 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   </div>
 </section>
 
+<section id="broadcast" class="broadcast-banner">
+  <div class="container">
+    <h2>Live Prayer Broadcast</h2>
+    <p class="section-sub" style="color:#cbd5e1">Join our next live session for Global Dawn Prayers. You can also connect this section later to YouTube Live or Facebook Live.</p>
+    <div class="hero-actions">
+      <a class="button" href="https://zoom.us/wc/join/5489802963" target="_blank">Join on Zoom</a>
+      <a class="button alt" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20want%20to%20join%20the%20live%20prayer." target="_blank">Need Help Joining?</a>
+    </div>
+  </div>
+</section>
+
+<section id="prayer-request">
+  <div class="container grid grid-2">
+    <div>
+      <h2>Online Prayer Request Form</h2>
+      <p class="section-sub">Send your prayer request directly through the website. The request will be stored in your Supabase ministry database when connected.</p>
+      <div class="card">
+        <form id="prayerForm" class="form-grid">
+          <input class="input" name="full_name" placeholder="Full name" required>
+          <input class="input" name="contact" placeholder="Phone or email" required>
+          <select class="select" name="request_type" required>
+            <option value="">Type of request</option>
+            <option>Healing</option>
+            <option>Family</option>
+            <option>Deliverance</option>
+            <option>Direction</option>
+            <option>Thanksgiving</option>
+          </select>
+          <textarea class="textarea" name="message" placeholder="Share your prayer request" required></textarea>
+          <button class="button dark" type="submit">Submit Prayer Request</button>
+        </form>
+        <div id="prayerNotice" class="notice">Your prayer request has been submitted.</div>
+      </div>
+    </div>
+    <div class="card">
+      <strong>Prayer Support</strong>
+      <p class="info">For urgent support, use the WhatsApp button or hotline below.</p>
+      <p><strong>Prayer Hotline:</strong> +233 555 031 116</p>
+      <p><strong>Email:</strong> info@rehobothprayer.org</p>
+      <a class="button green" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20urgent%20prayer%20support." target="_blank">WhatsApp Prayer Team</a>
+    </div>
+  </div>
+</section>
+
+<section id="testimonies">
+  <div class="container grid grid-2">
+    <div>
+      <h2>Testimony Submission</h2>
+      <p class="section-sub">Submit your testimony. This section is ready to connect to a testimonies table for review and approval.</p>
+      <div class="card">
+        <form id="testimonyForm" class="form-grid">
+          <input class="input" name="full_name" placeholder="Full name" required>
+          <input class="input" name="contact" placeholder="Phone or email">
+          <input class="input" name="title" placeholder="Testimony title" required>
+          <textarea class="textarea" name="body" placeholder="Share your testimony" required></textarea>
+          <button class="button dark" type="submit">Submit Testimony</button>
+        </form>
+        <div id="testimonyNotice" class="notice">Your testimony has been submitted for review.</div>
+      </div>
+    </div>
+    <div class="card">
+      <strong>Recent Testimony Highlights</strong>
+      <p class="info">Approved testimonies can display here automatically once the testimonies database is added.</p>
+      <ul>
+        <li>God answered my family prayer request after consistent dawn prayers.</li>
+        <li>I received direction and peace through the ministry’s prayer support.</li>
+        <li>The Lord restored hope and strength in a difficult season.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="sermons">
+  <div class="container">
+    <h2>Sermon Upload System</h2>
+    <p class="section-sub">This section can display sermons, audio messages, YouTube links, and teaching archives.</p>
+    <div class="grid grid-3 sermon-list">
+      <div class="card"><h3>Mercy Speaks Better Than Judgment</h3><p class="info">Prophetic Charge • Sermon Archive</p></div>
+      <div class="card"><h3>Repair the Altar of the Lord</h3><p class="info">Workers Fasting & Prayer Teaching</p></div>
+      <div class="card"><h3>Global Dawn Prayers Highlights</h3><p class="info">Prayer Broadcast Archive</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="flyers">
   <div class="container">
-    <h2>Ministry Bulletin Highlights</h2>
+    <h2>Flyer Gallery</h2>
     <p class="section-sub">Daily prayer bulletins and prophetic flyers from Rehoboth Prayer Network.</p>
     <div class="grid grid-4">
-      <div class="card flyer-card">
-        <img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_59%20PM.png" alt="Mercy Triumphs Over Judgment flyer">
-        <div class="flyer-text"><strong>Mercy Triumphs Over Judgment</strong><br><span class="info">Daily Prayer Bulletin</span></div>
-      </div>
-      <div class="card flyer-card">
-        <img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_52%20PM.png" alt="Let the Evil Conceived Be Exposed flyer">
-        <div class="flyer-text"><strong>Let the Evil Conceived Be Exposed</strong><br><span class="info">Prophetic Prayer Flyer</span></div>
-      </div>
-      <div class="card flyer-card">
-        <img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_48%20PM.png" alt="Global Dawn Prayers flyer">
-        <div class="flyer-text"><strong>Global Dawn Prayers</strong><br><span class="info">Prayer Network Flyer</span></div>
-      </div>
-      <div class="card flyer-card">
-        <img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_40%20PM.png" alt="10 Prophetic Prayers flyer">
-        <div class="flyer-text"><strong>10 Prophetic Prayers</strong><br><span class="info">Prayer Bulletin</span></div>
-      </div>
+      <div class="card flyer-card"><img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_59%20PM.png" alt="Mercy flyer"><div class="flyer-text"><strong>Mercy Triumphs Over Judgment</strong><br><span class="info">Daily Prayer Bulletin</span></div></div>
+      <div class="card flyer-card"><img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_52%20PM.png" alt="Exposed flyer"><div class="flyer-text"><strong>Let the Evil Conceived Be Exposed</strong><br><span class="info">Prophetic Prayer Flyer</span></div></div>
+      <div class="card flyer-card"><img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_48%20PM.png" alt="Global Dawn flyer"><div class="flyer-text"><strong>Global Dawn Prayers</strong><br><span class="info">Prayer Network Flyer</span></div></div>
+      <div class="card flyer-card"><img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_40%20PM.png" alt="10 Prayers flyer"><div class="flyer-text"><strong>10 Prophetic Prayers</strong><br><span class="info">Prayer Bulletin</span></div></div>
     </div>
   </div>
 </section>
@@ -174,6 +230,24 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   </div>
 </section>
 
+<section id="admin">
+  <div class="container">
+    <h2>Admin Panel</h2>
+    <p class="section-sub">This section is ready to become your protected ministry dashboard for prayer requests, testimonies, sermons, and flyers.</p>
+    <div class="card admin-box">
+      <p><strong>Admin features ready to connect:</strong></p>
+      <ul>
+        <li>Review prayer requests</li>
+        <li>Approve testimonies</li>
+        <li>Upload sermons</li>
+        <li>Manage flyer gallery</li>
+        <li>Post broadcast updates</li>
+      </ul>
+      <p class="info">Next phase: connect this to Supabase Auth and protected admin pages.</p>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container">
     <h2>Contact</h2>
@@ -191,5 +265,50 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   <p>© Rehoboth Prayer Network</p>
   <p class="footer-text">Global Dawn Prayers • Monday to Friday • 4:00 AM Ghana</p>
 </footer>
+
+<script>
+const SUPABASE_URL = "https://gquegwosvsjmijspfcdi.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdxdWVnd29zdnNqbWlqc3BmY2RpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxNDU5NDIsImV4cCI6MjA4ODcyMTk0Mn0.x5R_JM5MYhm9EXsZVZ4QjVxwsH4NuptguG6UbznYQQU";
+
+async function saveRecord(table, payload){
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+    },
+    body: JSON.stringify(payload)
+  });
+  if(!response.ok) throw new Error('Unable to save right now.');
+}
+
+document.getElementById('prayerForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const form = new FormData(this);
+  const payload = {
+    id: crypto.randomUUID(),
+    full_name: form.get('full_name'),
+    contact: form.get('contact'),
+    request_type: form.get('request_type'),
+    message: form.get('message'),
+    created_at: new Date().toISOString()
+  };
+  try{
+    await saveRecord('prayer_requests', payload);
+    this.reset();
+    document.getElementById('prayerNotice').style.display='block';
+  }catch(err){
+    alert('Prayer request could not be submitted right now.');
+  }
+});
+
+document.getElementById('testimonyForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  alert('Testimony form is ready. Next step is to create a testimonies table in Supabase and connect approval flow.');
+  this.reset();
+  document.getElementById('testimonyNotice').style.display='block';
+});
+</script>
 </body>
 </html>
