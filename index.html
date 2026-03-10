@@ -5,101 +5,191 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rehoboth Prayer Network</title>
 <style>
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f5f7fb;color:#1e293b}
-header{background:#0f172a;color:white;padding:60px 20px;text-align:center}
-nav{position:sticky;top:0;background:white;padding:10px;border-bottom:1px solid #e2e8f0;text-align:center}
-nav a{margin:6px;padding:8px 14px;border:1px solid #e2e8f0;border-radius:20px;text-decoration:none;color:#334155;font-size:14px}
-section{padding:60px 20px;max-width:1100px;margin:auto}
-.card{background:white;border:1px solid #e2e8f0;border-radius:16px;padding:20px;margin-top:20px}
+:root{--bg:#f5f7fb;--card:#ffffff;--text:#1e293b;--muted:#64748b;--dark:#0f172a;--line:#e2e8f0;--gold:#facc15}
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:linear-gradient(rgba(15,23,42,.82),rgba(15,23,42,.82)),url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1600&q=80') center/cover;color:white;padding:60px 20px}
+.container{max-width:1150px;margin:auto}
+.hero{display:grid;grid-template-columns:1.3fr .9fr;gap:30px;align-items:center}
+.logo-wrap{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+.logo{width:86px;height:86px;border-radius:24px;object-fit:contain;background:#fff;padding:8px;border:1px solid rgba(255,255,255,.2)}
+.badge{display:inline-block;background:rgba(255,255,255,.1);padding:8px 14px;border-radius:999px;font-size:14px}
+h1{font-size:48px;line-height:1.1;margin:0 0 16px}
+.hero p{font-size:18px;color:#e2e8f0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.button{display:inline-block;padding:12px 20px;background:#fff;color:var(--dark);border-radius:12px;text-decoration:none;font-weight:bold}
+.button.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.side-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:24px;backdrop-filter:blur(10px)}
+.side-card h3{margin-top:0;font-size:28px}
+.side-card .small{color:#cbd5e1;font-size:14px}
+.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.quick div{background:rgba(255,255,255,.08);padding:14px;border-radius:14px}
+nav{position:sticky;top:0;background:white;padding:12px 10px;border-bottom:1px solid var(--line);text-align:center;z-index:10}
+nav a{display:inline-block;margin:6px;padding:8px 14px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:#334155;font-size:14px;background:#fff}
+section{padding:60px 20px}
+section h2{font-size:36px;margin:0 0 10px}
+.section-sub{max-width:800px;color:var(--muted);font-size:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 2px 10px rgba(15,23,42,.03)}
 .grid{display:grid;gap:20px}
-.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.button{display:inline-block;padding:12px 20px;background:#0f172a;color:white;border-radius:10px;text-decoration:none;margin-top:10px}
-.highlight{background:#fff3cd;border:2px solid #facc15;padding:15px;border-radius:12px;text-align:center;font-weight:bold}
-footer{background:#0f172a;color:white;padding:40px 20px;text-align:center;margin-top:40px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.info{color:var(--muted)}
+.highlight{background:#fff8db;border:2px solid var(--gold);padding:16px;border-radius:16px;text-align:center}
+.highlight .label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#a16207;font-weight:bold}
+.highlight .number{font-size:34px;font-weight:800;letter-spacing:.04em;color:var(--dark);margin-top:5px}
+.logo-card{text-align:center}
+.logo-card img{max-width:120px;width:100%;height:auto;object-fit:contain}
+.flyer-card{overflow:hidden;padding:0}
+.flyer-card img{display:block;width:100%;height:380px;object-fit:cover;object-position:top}
+.flyer-text{padding:16px}
+.prayer-time{font-size:28px;font-weight:800}
+.contact-list p{margin:10px 0}
+.qr{width:100%;max-width:240px;border-radius:16px;border:1px solid var(--line);display:block;margin:auto}
+footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;margin-top:20px}
+.footer-text{color:#cbd5e1}
+@media (max-width:900px){.hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}h1{font-size:38px}.flyer-card img{height:320px}}
 </style>
 </head>
 <body>
-
 <header>
-<h1>Rehoboth Prayer Network</h1>
-<p>Raising Altars of Prayer, Revival and Counsel Across Nations</p>
-<p><b>Global Dawn Prayers – Monday to Friday</b></p>
-<p>4:00 AM Ghana • Zoom ID: 5489802963 • Passcode: RRIM</p>
-<a class="button" href="https://zoom.us/wc/join/5489802963" target="_blank">Join Prayer Room</a>
+  <div class="container hero">
+    <div>
+      <div class="logo-wrap">
+        <img class="logo" src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_08_16%20PM.png" alt="Rehoboth Prayer Network logo">
+        <div>
+          <div class="badge">Rehoboth Prayer Network • Global Dawn Prayers</div>
+          <div style="margin-top:8px;color:#e2e8f0;font-size:14px">Word • Prayer • Prophetic</div>
+        </div>
+      </div>
+      <h1>Raising Altars of Prayer, Revival and Counsel Across Nations</h1>
+      <p>Join Rehoboth Prayer Network for global dawn prayers, prayer support, counseling, partnership, prophetic teachings, and ministry bulletins.</p>
+      <div class="hero-actions">
+        <a class="button" href="https://zoom.us/wc/join/5489802963" target="_blank">Join Prayer Room</a>
+        <a class="button alt" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20prayer%20support." target="_blank">Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="side-card">
+      <div class="small">GLOBAL DAWN PRAYERS</div>
+      <h3>Monday – Friday</h3>
+      <div class="quick">
+        <div><strong>Ghana Time</strong><br>4:00 AM</div>
+        <div><strong>Zoom ID</strong><br>5489802963</div>
+        <div><strong>Passcode</strong><br>RRIM</div>
+        <div><strong>Hotline</strong><br>+233 555 031 116</div>
+      </div>
+    </div>
+  </div>
 </header>
 
 <nav>
-<a href="#about">About</a>
-<a href="#prayer">Prayer Times</a>
-<a href="#broadcast">Broadcast</a>
-<a href="#request">Prayer Request</a>
-<a href="#partner">Partnership</a>
-<a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="#prayer-times">Prayer Times</a>
+  <a href="#flyers">Flyers</a>
+  <a href="#giving">Giving</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
-<h2>About the Ministry</h2>
-<div class="card">
-<p>Rehoboth Prayer Network is a prophetic prayer ministry devoted to raising a global altar of prayer through intercession, spiritual counsel, biblical teaching and revival gatherings.</p>
-</div>
+  <div class="container grid grid-2">
+    <div>
+      <h2>About the Ministry</h2>
+      <p class="section-sub">Rehoboth Prayer Network is a prophetic prayer ministry devoted to raising a global altar of prayer through intercession, spiritual counsel, biblical teaching, and revival gatherings.</p>
+      <div class="card info">
+        Through Global Dawn Prayers, daily prayer bulletins, counseling support, and strategic prayer gatherings, the ministry serves individuals, families, workers, and leaders across nations.
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card"><strong>Vision</strong><br><span class="info">To raise a global altar of prayer where lives are transformed, destinies are restored, and nations are impacted through intercession.</span></div>
+      <div class="card"><strong>Mission</strong><br><span class="info">To build a prayer-centered community through daily intercession, biblical teaching, prophetic ministry, counseling, and revival programs.</span></div>
+    </div>
+  </div>
 </section>
 
-<section id="prayer">
-<h2>Global Prayer Times</h2>
-<div class="grid grid-4">
-<div class="card"><b>Ghana</b><br>4:00 AM</div>
-<div class="card"><b>United Kingdom</b><br>4:00 AM</div>
-<div class="card"><b>New York</b><br>11:00 PM</div>
-<div class="card"><b>Nigeria</b><br>5:00 AM</div>
-<div class="card"><b>South Africa</b><br>6:00 AM</div>
-<div class="card"><b>Qatar</b><br>7:00 AM</div>
-<div class="card"><b>India</b><br>9:30 AM</div>
-<div class="card"><b>China</b><br>12:00 PM</div>
-</div>
+<section id="prayer-times">
+  <div class="container">
+    <h2>Global Prayer Times</h2>
+    <p class="section-sub">Global Dawn Prayers begins at <strong>4:00 AM Ghana time</strong>. Here is how that time appears in other countries.</p>
+    <div class="grid grid-4">
+      <div class="card"><strong>Ghana</strong><div class="prayer-time">4:00 AM</div></div>
+      <div class="card"><strong>United Kingdom</strong><div class="prayer-time">4:00 AM</div></div>
+      <div class="card"><strong>USA (New York)</strong><div class="prayer-time">11:00 PM</div></div>
+      <div class="card"><strong>Nigeria</strong><div class="prayer-time">5:00 AM</div></div>
+      <div class="card"><strong>South Africa</strong><div class="prayer-time">6:00 AM</div></div>
+      <div class="card"><strong>Qatar</strong><div class="prayer-time">7:00 AM</div></div>
+      <div class="card"><strong>India</strong><div class="prayer-time">9:30 AM</div></div>
+      <div class="card"><strong>China</strong><div class="prayer-time">12:00 PM</div></div>
+    </div>
+  </div>
 </section>
 
-<section id="broadcast">
-<h2>Broadcast</h2>
-<div class="card">
-<p>Join our live prayer meetings and revival broadcasts.</p>
-<a class="button" href="https://zoom.us/wc/join/5489802963" target="_blank">Join on Zoom</a>
-</div>
+<section id="flyers">
+  <div class="container">
+    <h2>Ministry Bulletin Highlights</h2>
+    <p class="section-sub">Daily prayer bulletins and prophetic flyers from Rehoboth Prayer Network.</p>
+    <div class="grid grid-4">
+      <div class="card flyer-card">
+        <img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_59%20PM.png" alt="Mercy Triumphs Over Judgment flyer">
+        <div class="flyer-text"><strong>Mercy Triumphs Over Judgment</strong><br><span class="info">Daily Prayer Bulletin</span></div>
+      </div>
+      <div class="card flyer-card">
+        <img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_52%20PM.png" alt="Let the Evil Conceived Be Exposed flyer">
+        <div class="flyer-text"><strong>Let the Evil Conceived Be Exposed</strong><br><span class="info">Prophetic Prayer Flyer</span></div>
+      </div>
+      <div class="card flyer-card">
+        <img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_48%20PM.png" alt="Global Dawn Prayers flyer">
+        <div class="flyer-text"><strong>Global Dawn Prayers</strong><br><span class="info">Prayer Network Flyer</span></div>
+      </div>
+      <div class="card flyer-card">
+        <img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_40%20PM.png" alt="10 Prophetic Prayers flyer">
+        <div class="flyer-text"><strong>10 Prophetic Prayers</strong><br><span class="info">Prayer Bulletin</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="request">
-<h2>Send a Prayer Request</h2>
-<div class="card">
-<p>Email your prayer request to:</p>
-<b>info@rehobothprayer.org</b>
-</div>
-</section>
-
-<section id="partner">
-<h2>Support the Ministry</h2>
-<div class="card">
-<p>Mobile Money Support</p>
-<div class="highlight">
-+233 555 031 116<br>
-MTN Mobile Money
-</div>
-<p>Reference: Partner Seed / Offering</p>
-</div>
+<section id="giving">
+  <div class="container grid grid-2">
+    <div>
+      <h2>Support the Ministry</h2>
+      <div class="card">
+        <p><strong>Mobile Money Support</strong></p>
+        <div class="highlight">
+          <div class="label">Send Support To</div>
+          <div class="number">+233 555 031 116</div>
+          <div>MTN Mobile Money</div>
+        </div>
+        <p><strong>MoMo Name:</strong> Rehoboth Revival Int. Ministry</p>
+        <p><strong>Reference:</strong> Partner Seed / Offering / Project Support</p>
+        <p><a class="button" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20want%20to%20support%20the%20ministry." target="_blank">Become a Partner</a></p>
+      </div>
+    </div>
+    <div>
+      <div class="card logo-card">
+        <p><strong>International Support – Alipay</strong></p>
+        <img class="qr" src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/WhatsApp%20Image%202026-03-10%20at%201.43.35%20PM.jpeg" alt="Alipay QR code">
+        <p class="info">Scan inside Alipay to support the ministry internationally.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="contact">
-<h2>Contact</h2>
-<div class="card">
-<p>Prayer Hotline: +233 555 031 116</p>
-<p>WhatsApp: +233 555 031 116</p>
-<p>Email: info@rehobothprayer.org</p>
-<p>Location: Accra, Ghana</p>
-</div>
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="card contact-list">
+      <p><strong>Prayer Hotline:</strong> +233 555 031 116</p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20prayer%20support." target="_blank">Chat Now</a></p>
+      <p><strong>Email:</strong> <a href="mailto:info@rehobothprayer.org">info@rehobothprayer.org</a></p>
+      <p><strong>Location:</strong> Accra, Ghana</p>
+      <p><a class="button" href="https://zoom.us/wc/join/5489802963" target="_blank">Join on Zoom</a></p>
+    </div>
+  </div>
 </section>
 
 <footer>
-<p>© Rehoboth Prayer Network</p>
-<p>Global Dawn Prayers</p>
+  <p>© Rehoboth Prayer Network</p>
+  <p class="footer-text">Global Dawn Prayers • Monday to Friday • 4:00 AM Ghana</p>
 </footer>
-
 </body>
 </html>
