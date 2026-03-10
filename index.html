@@ -109,7 +109,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
 <section id="broadcast" class="broadcast-banner">
   <div class="container">
     <h2>Live Prayer Broadcast</h2>
-    <p class="section-sub" style="color:#cbd5e1">Join our next live session for Global Dawn Prayers. You can also connect this section later to YouTube Live or Facebook Live.</p>
+    <p class="section-sub" style="color:#cbd5e1">Join our next live session for Global Dawn Prayers.</p>
     <div class="hero-actions">
       <a class="button" href="https://zoom.us/wc/join/5489802963" target="_blank">Join on Zoom</a>
       <a class="button alt" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20want%20to%20join%20the%20live%20prayer." target="_blank">Need Help Joining?</a>
@@ -121,7 +121,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   <div class="container grid grid-2">
     <div>
       <h2>Online Prayer Request Form</h2>
-      <p class="section-sub">Send your prayer request directly through the website. The request will be stored in your Supabase ministry database when connected.</p>
+      <p class="section-sub">Send your prayer request directly through the website.</p>
       <div class="card">
         <form id="prayerForm" class="form-grid">
           <input class="input" name="full_name" placeholder="Full name" required>
@@ -137,7 +137,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
           <textarea class="textarea" name="message" placeholder="Share your prayer request" required></textarea>
           <button class="button dark" type="submit">Submit Prayer Request</button>
         </form>
-        <div id="prayerNotice" class="notice">Your prayer request has been submitted.</div>
+        <div id="prayerNotice" class="notice">Your prayer request has been submitted and opened in WhatsApp.</div>
       </div>
     </div>
     <div class="card">
@@ -154,7 +154,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   <div class="container grid grid-2">
     <div>
       <h2>Testimony Submission</h2>
-      <p class="section-sub">Submit your testimony. This section is ready to connect to a testimonies table for review and approval.</p>
+      <p class="section-sub">Submit your testimony.</p>
       <div class="card">
         <form id="testimonyForm" class="form-grid">
           <input class="input" name="full_name" placeholder="Full name" required>
@@ -163,7 +163,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
           <textarea class="textarea" name="body" placeholder="Share your testimony" required></textarea>
           <button class="button dark" type="submit">Submit Testimony</button>
         </form>
-        <div id="testimonyNotice" class="notice">Your testimony has been submitted for review.</div>
+        <div id="testimonyNotice" class="notice">Your testimony has been submitted.</div>
       </div>
     </div>
     <div class="card">
@@ -268,26 +268,42 @@ async function saveRecord(table, payload){
 document.getElementById('prayerForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const form = new FormData(this);
+  const name = form.get('full_name');
+  const contact = form.get('contact');
+  const type = form.get('request_type');
+  const message = form.get('message');
+
   const payload = {
     id: crypto.randomUUID(),
-    full_name: form.get('full_name'),
-    contact: form.get('contact'),
-    request_type: form.get('request_type'),
-    message: form.get('message'),
+    full_name: name,
+    contact: contact,
+    request_type: type,
+    message: message,
     created_at: new Date().toISOString()
   };
-  try{
+
+  const text = encodeURIComponent(
+    `Prayer Request
+Name: ${name}
+Contact: ${contact}
+Type: ${type}
+Request: ${message}`
+  );
+  const whatsappURL = `https://wa.me/233555031116?text=${text}`;
+
+  try {
     await saveRecord('prayer_requests', payload);
-    this.reset();
-    document.getElementById('prayerNotice').style.display='block';
-  }catch(err){
-    alert('Prayer request could not be submitted right now.');
+  } catch (error) {
+    console.error(error);
   }
+
+  window.open(whatsappURL, '_blank');
+  this.reset();
+  document.getElementById('prayerNotice').style.display='block';
 });
 
-document.getElementById('testimonyForm').addEventListener('submit', async function(e){
+document.getElementById('testimonyForm').addEventListener('submit', function(e){
   e.preventDefault();
-  alert('Testimony form is ready. Next step is to create a testimonies table in Supabase and connect approval flow.');
   this.reset();
   document.getElementById('testimonyNotice').style.display='block';
 });
