@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -254,11 +254,23 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
     <h2>Admin</h2>
     <div class="card admin-box">
       <p><strong>Ministry Dashboard Access</strong></p>
-      <p class="info">This section is for leadership access to manage prayer requests, testimonies, sermons, flyers, and broadcast updates.</p>
-      <div class="form-grid" style="max-width:520px">
-        <input class="input" type="email" placeholder="Admin email">
-        <input class="input" type="password" placeholder="Password">
-        <button class="button dark" type="button">Admin Login</button>
+      <p class="info">Authorized leadership can log in here to manage ministry records.</p>
+      <form id="adminLoginForm" class="form-grid" style="max-width:520px">
+        <input id="adminEmail" class="input" type="email" placeholder="Admin email" required>
+        <input id="adminPassword" class="input" type="password" placeholder="Password" required>
+        <button class="button dark" type="submit">Admin Login</button>
+      </form>
+      <div id="adminLoginNotice" class="notice">Admin login successful.</div>
+      <div id="adminError" class="notice" style="display:none;background:#fef2f2;color:#991b1b;border-color:#fecaca">Login failed. Check your email and password.</div>
+      <div id="adminDashboard" style="display:none;margin-top:20px">
+        <div class="grid grid-3">
+          <div class="card"><strong>Prayer Requests</strong><p class="info">View new requests in Supabase Table Editor.</p></div>
+          <div class="card"><strong>Partners</strong><p class="info">Review giving / partner forms in the partners table.</p></div>
+          <div class="card"><strong>Testimonies & Sermons</strong><p class="info">Next step is to connect testimonies and sermons records here.</p></div>
+        </div>
+        <div style="margin-top:16px">
+          <button id="adminLogoutBtn" class="button dark" type="button">Sign Out</button>
+        </div>
       </div>
     </div>
   </div>
@@ -283,21 +295,29 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   <p class="footer-text">Global Dawn Prayers • Monday to Friday • 4:00 AM Ghana</p>
 </footer>
 
-<script>
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
 const SUPABASE_URL = "https://gquegwosvsjmijspfcdi.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdxdWVnd29zdnNqbWlqc3BmY2RpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxNDU5NDIsImV4cCI6MjA4ODcyMTk0Mn0.x5R_JM5MYhm9EXsZVZ4QjVxwsH4NuptguG6UbznYQQU";
 
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 async function saveRecord(table, payload){
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': SUPABASE_ANON_KEY,
-      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-    },
-    body: JSON.stringify(payload)
-  });
-  if(!response.ok) throw new Error('Unable to save right now.');
+  const { error } = await supabase.from(table).insert(payload);
+  if(error) throw error;
+}
+
+function showNotice(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.style.display = 'block';
+  setTimeout(() => { el.style.display = 'none'; }, 4000);
+}
+
+function setAdminState(isLoggedIn){
+  document.getElementById('adminDashboard').style.display = isLoggedIn ? 'block' : 'none';
+  document.getElementById('adminLoginForm').style.display = isLoggedIn ? 'none' : 'grid';
 }
 
 document.getElementById('prayerForm').addEventListener('submit', async function(e){
@@ -317,30 +337,23 @@ document.getElementById('prayerForm').addEventListener('submit', async function(
     created_at: new Date().toISOString()
   };
 
-  const text = encodeURIComponent(
-    `Prayer Request
+  const text = encodeURIComponent(`Prayer Request
 Name: ${name}
 Contact: ${contact}
 Type: ${type}
-Request: ${message}`
-  );
+Request: ${message}`);
   const whatsappURL = `https://wa.me/233555031116?text=${text}`;
 
-  try {
-    await saveRecord('prayer_requests', payload);
-  } catch (error) {
-    console.error(error);
-  }
-
+  try { await saveRecord('prayer_requests', payload); } catch (error) { console.error(error); }
   window.open(whatsappURL, '_blank');
   this.reset();
-  document.getElementById('prayerNotice').style.display='block';
+  showNotice('prayerNotice');
 });
 
 document.getElementById('testimonyForm').addEventListener('submit', function(e){
   e.preventDefault();
   this.reset();
-  document.getElementById('testimonyNotice').style.display='block';
+  showNotice('testimonyNotice');
 });
 
 document.getElementById('partnerForm').addEventListener('submit', async function(e){
@@ -355,15 +368,35 @@ document.getElementById('partnerForm').addEventListener('submit', async function
     created_at: new Date().toISOString()
   };
 
-  try {
-    await saveRecord('partners', payload);
-  } catch (error) {
-    console.error(error);
+  try { await saveRecord('partners', payload); } catch (error) { console.error(error); }
+  this.reset();
+  showNotice('partnerNotice');
+});
+
+document.getElementById('adminLoginForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  document.getElementById('adminError').style.display = 'none';
+  const email = document.getElementById('adminEmail').value;
+  const password = document.getElementById('adminPassword').value;
+
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  if(error){
+    document.getElementById('adminError').style.display = 'block';
+    return;
   }
 
   this.reset();
-  document.getElementById('partnerNotice').style.display='block';
+  setAdminState(true);
+  showNotice('adminLoginNotice');
 });
+
+document.getElementById('adminLogoutBtn').addEventListener('click', async function(){
+  await supabase.auth.signOut();
+  setAdminState(false);
+});
+
+const { data: { session } } = await supabase.auth.getSession();
+setAdminState(!!session);
 </script>
 </body>
 </html>
