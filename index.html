@@ -397,6 +397,13 @@ document.getElementById('adminLogoutBtn').addEventListener('click', async functi
 
 const { data: { session } } = await supabase.auth.getSession();
 setAdminState(!!session);
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/service-worker.js");
+  });
+}
 </script>
 </body>
 </html>
+
