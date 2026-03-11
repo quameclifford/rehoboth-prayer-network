@@ -23,7 +23,7 @@ h1{font-size:48px;line-height:1.1;margin:0 0 16px}.hero p{font-size:18px;color:#
 .button.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)} .button.dark{background:var(--dark);color:#fff} .button.green{background:var(--green);color:#fff}
 .side-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:24px;backdrop-filter:blur(10px)} .side-card h3{margin-top:0;font-size:28px}.side-card .small{color:#cbd5e1;font-size:14px}
 .quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.quick div{background:rgba(255,255,255,.08);padding:14px;border-radius:14px}
-nav{position:sticky;top:0;background:white;padding:12px 10px;border-bottom:1px solid var(--line);text-align:center;z-index:10} nav a{display:inline-block;margin:6px;padding:8px 14px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:#334155;font-size:14px;background:#fff}
+nav{position:sticky;top:0;background:white;padding:12px 10px;border-bottom:1px solid var(--line);text-align:center;z-index:10} nav a{display:inline-block;margin:6px;padding:8px 14px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:#334155;font-size:14px;background:#fff}.mobile-top-actions{display:none}.mobile-hide{display:block}.desktop-hide{display:none}.sticky-mobile-bar{display:none}
 section{padding:60px 20px} section h2{font-size:36px;margin:0 0 10px}.section-sub{max-width:800px;color:var(--muted);font-size:18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 2px 10px rgba(15,23,42,.03)} .grid{display:grid;gap:20px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .info{color:var(--muted)} .highlight{background:#fff8db;border:2px solid var(--gold);padding:16px;border-radius:16px;text-align:center}.highlight .label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#a16207;font-weight:bold}.highlight .number{font-size:34px;font-weight:800;letter-spacing:.04em;color:var(--dark);margin-top:5px}
@@ -35,7 +35,7 @@ section{padding:60px 20px} section h2{font-size:36px;margin:0 0 10px}.section-su
 .floating-whatsapp{position:fixed;right:18px;bottom:18px;background:#25D366;color:white;text-decoration:none;padding:14px 18px;border-radius:999px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.15);z-index:99}
 .install-btn{display:none}
 footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;margin-top:20px}.footer-text{color:#cbd5e1}
-@media (max-width:900px){.hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}h1{font-size:38px}.flyer-card img{height:320px}.floating-whatsapp{left:18px;right:18px;text-align:center}}
+@media (max-width:900px){.hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}h1{font-size:34px}.hero p,.section-sub{font-size:16px}.flyer-card img{height:300px}.floating-whatsapp{display:none}.logo-wrap{align-items:flex-start}.side-card{padding:18px}.quick{grid-template-columns:1fr 1fr}.mobile-top-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.mobile-hide{display:none}.desktop-hide{display:block}.sticky-mobile-bar{position:fixed;left:12px;right:12px;bottom:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;z-index:100}.sticky-mobile-bar a{background:var(--dark);color:#fff;text-decoration:none;text-align:center;padding:12px 10px;border-radius:14px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.15)}nav{padding:10px 8px;white-space:nowrap;overflow-x:auto;text-align:left}nav a{font-size:13px;padding:8px 12px;margin:4px}.card{padding:18px}section{padding:42px 16px}header{padding:44px 16px}}
 </style>
 </head>
 <body>
@@ -54,11 +54,15 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
       <p>Join Rehoboth Prayer Network for global dawn prayers, prayer support, counseling, partnership, prophetic teachings, testimonies, and ministry bulletins.</p>
       <div class="hero-actions">
         <a class="button" href="https://zoom.us/wc/join/5489802963" target="_blank">Join Prayer Room</a>
-        <a class="button alt" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20prayer%20support." target="_blank">Chat on WhatsApp</a>
-        <button id="installAppBtn" class="button alt install-btn" type="button">Install App</button>
+        <a class="button alt mobile-hide" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20prayer%20support." target="_blank">Chat on WhatsApp</a>
+        <button id="installAppBtn" class="button alt install-btn mobile-hide" type="button">Install App</button>
+      </div>
+      <div class="mobile-top-actions desktop-hide">
+        <a class="button dark" href="#prayer-request">Send Request</a>
+        <a class="button green" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20prayer%20support." target="_blank">WhatsApp Help</a>
       </div>
     </div>
-    <div class="side-card">
+    <div class="side-card mobile-hide">
       <div class="small">GLOBAL DAWN PRAYERS</div>
       <h3>Monday – Friday</h3>
       <div class="quick">
@@ -80,9 +84,14 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   <a href="#sermons">Sermons</a>
   <a href="#flyers">Flyers</a>
   <a href="#giving">Giving</a>
-  <a href="#admin">Admin</a>
-    <a href="#contact">Contact</a>
+      <a href="#contact">Contact</a>
 </nav>
+
+<div class="sticky-mobile-bar desktop-hide">
+  <a href="#prayer-request">Pray</a>
+  <a href="https://zoom.us/wc/join/5489802963" target="_blank">Zoom</a>
+  <a href="#giving">Give</a>
+</div>
 
 <section id="about">
   <div class="container grid grid-2">
@@ -98,7 +107,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   </div>
 </section>
 
-<section id="prayer-times">
+<section id="prayer-times" class="mobile-hide">
   <div class="container">
     <h2>Global Prayer Times</h2>
     <p class="section-sub">Global Dawn Prayers begins at <strong>4:00 AM Ghana time</strong>. Here is how that time appears in other countries.</p>
@@ -129,7 +138,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
 <section id="prayer-request">
   <div class="container grid grid-2">
     <div>
-      <h2>Online Prayer Request Form</h2>
+      <h2>Prayer Request</h2>
       <p class="section-sub">Send your prayer request directly through the website.</p>
       <div class="card">
         <form id="prayerForm" class="form-grid">
@@ -160,6 +169,10 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
 </section>
 
 <section id="testimonies">
+  <div class="container">
+    <h2>Testimonies</h2>
+    <p class="section-sub desktop-hide">God is still answering prayers and transforming lives through this altar.</p>
+  </div>
   <div class="container grid grid-2">
     <div>
       <h2>Testimony Submission</h2>
@@ -187,10 +200,9 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   </div>
 </section>
 
-<section id="sermons">
+<section id="sermons" class="mobile-hide">
   <div class="container">
     <h2>Sermons</h2>
-    
     <div class="grid grid-3 sermon-list">
       <div class="card"><h3>Mercy Speaks Better Than Judgment</h3><p class="info">Prophetic Charge • Sermon Archive</p></div>
       <div class="card"><h3>Repair the Altar of the Lord</h3><p class="info">Workers Fasting & Prayer Teaching</p></div>
@@ -201,7 +213,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
 
 <section id="flyers">
   <div class="container">
-    <h2>Flyer Gallery</h2>
+    <h2>Flyers</h2>
     <p class="section-sub">Daily prayer bulletins and prophetic flyers from Rehoboth Prayer Network.</p>
     <div class="grid grid-4">
       <div class="card flyer-card"><img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_07_59%20PM.png" alt="Mercy flyer"><div class="flyer-text"><strong>Mercy Triumphs Over Judgment</strong><br><span class="info">Daily Prayer Bulletin</span></div></div>
@@ -254,33 +266,6 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
         <button class="button dark" type="submit">Submit Partner Form</button>
       </form>
       <div id="partnerNotice" class="notice">Your giving / partner form has been submitted.</div>
-    </div>
-  </div>
-</section>
-
-<section id="admin">
-  <div class="container">
-    <h2>Admin</h2>
-    <div class="card admin-box">
-      <p><strong>Ministry Dashboard Access</strong></p>
-      <p class="info">Authorized leadership can log in here to manage ministry records.</p>
-      <form id="adminLoginForm" class="form-grid" style="max-width:520px">
-        <input id="adminEmail" class="input" type="email" placeholder="Admin email" required>
-        <input id="adminPassword" class="input" type="password" placeholder="Password" required>
-        <button class="button dark" type="submit">Admin Login</button>
-      </form>
-      <div id="adminLoginNotice" class="notice">Admin login successful.</div>
-      <div id="adminError" class="notice" style="display:none;background:#fef2f2;color:#991b1b;border-color:#fecaca">Login failed. Check your email and password.</div>
-      <div id="adminDashboard" style="display:none;margin-top:20px">
-        <div class="grid grid-3">
-          <div class="card"><strong>Prayer Requests</strong><p class="info">View new requests in Supabase Table Editor.</p></div>
-          <div class="card"><strong>Partners</strong><p class="info">Review giving / partner forms in the partners table.</p></div>
-          <div class="card"><strong>Testimonies & Sermons</strong><p class="info">Next step is to connect testimonies and sermons records here.</p></div>
-        </div>
-        <div style="margin-top:16px">
-          <button id="adminLogoutBtn" class="button dark" type="button">Sign Out</button>
-        </div>
-      </div>
     </div>
   </div>
 </section>
