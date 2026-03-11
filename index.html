@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f172a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rehoboth Prayer">
+<link rel="apple-touch-icon" href="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_08_16%20PM.png">
+<link rel="manifest" href="/manifest.webmanifest">
 <title>Rehoboth Prayer Network</title>
 <style>
 :root{--bg:#f5f7fb;--card:#ffffff;--text:#1e293b;--muted:#64748b;--dark:#0f172a;--line:#e2e8f0;--gold:#facc15;--green:#16a34a}
@@ -27,6 +33,7 @@ section{padding:60px 20px} section h2{font-size:36px;margin:0 0 10px}.section-su
 .broadcast-banner{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff}
 .sermon-list .card h3{margin:0 0 8px}.admin-box{background:#fff;border:1px dashed #94a3b8}
 .floating-whatsapp{position:fixed;right:18px;bottom:18px;background:#25D366;color:white;text-decoration:none;padding:14px 18px;border-radius:999px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.15);z-index:99}
+.install-btn{display:none}
 footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;margin-top:20px}.footer-text{color:#cbd5e1}
 @media (max-width:900px){.hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}h1{font-size:38px}.flyer-card img{height:320px}.floating-whatsapp{left:18px;right:18px;text-align:center}}
 </style>
@@ -48,6 +55,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
       <div class="hero-actions">
         <a class="button" href="https://zoom.us/wc/join/5489802963" target="_blank">Join Prayer Room</a>
         <a class="button alt" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20prayer%20support." target="_blank">Chat on WhatsApp</a>
+        <button id="installAppBtn" class="button alt install-btn" type="button">Install App</button>
       </div>
     </div>
     <div class="side-card">
@@ -86,6 +94,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
     <div class="grid">
       <div class="card"><strong>Vision</strong><br><span class="info">To raise a global altar of prayer where lives are transformed, destinies are restored, and nations are impacted through intercession.</span></div>
       <div class="card"><strong>Mission</strong><br><span class="info">To build a prayer-centered community through daily intercession, biblical teaching, prophetic ministry, counseling, and revival programs.</span></div>
+          <div class="card flyer-card"><img src="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2011,%202026,%2003_30_10%20PM.png" alt="New prayer flyer"><div class="flyer-text"><strong>Prophetic Prayer Bulletin</strong><br><span class="info">Ministry Prayer Flyer</span></div></div>
     </div>
   </div>
 </section>
@@ -397,13 +406,35 @@ document.getElementById('adminLogoutBtn').addEventListener('click', async functi
 
 const { data: { session } } = await supabase.auth.getSession();
 setAdminState(!!session);
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker.register("/service-worker.js");
+
+let deferredPrompt = null;
+const installBtn = document.getElementById('installAppBtn');
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = 'inline-block';
+});
+
+installBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installBtn.style.display = 'none';
+});
+
+window.addEventListener('appinstalled', () => {
+  installBtn.style.display = 'none';
+});
+
+// Register service worker so the site can be installable as a PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log('Service Worker registered'))
+      .catch(err => console.error('Service Worker registration failed', err));
   });
 }
 </script>
 </body>
 </html>
-
