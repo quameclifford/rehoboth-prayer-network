@@ -24,11 +24,11 @@ h1{font-size:48px;line-height:1.1;margin:0 0 16px}.hero p{font-size:18px;color:#
 .button.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)} .button.dark{background:var(--dark);color:#fff} .button.green{background:var(--green);color:#fff}
 .side-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:24px;backdrop-filter:blur(10px)} .side-card h3{margin-top:0;font-size:28px}.side-card .small{color:#cbd5e1;font-size:14px}
 .quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.quick div{background:rgba(255,255,255,.08);padding:14px;border-radius:14px}
-nav{position:sticky;top:0;background:white;padding:12px 10px;border-bottom:1px solid var(--line);text-align:center;z-index:10} nav a{display:inline-block;margin:6px;padding:8px 14px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:#334155;font-size:14px;background:#fff}.mobile-top-actions{display:none}.mobile-hide{display:block}.desktop-hide{display:none}.sticky-mobile-bar{display:none}
+nav{position:sticky;top:0;background:white;padding:12px 10px;border-bottom:1px solid var(--line);text-align:center;z-index:10} nav a{display:inline-block;margin:6px;padding:8px 14px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:#334155;font-size:14px;background:#fff}.mobile-top-actions{display:none}.mobile-hide{display:block}.desktop-hide{display:none}.sticky-mobile-bar{display:none}.ios-install-guide{display:none;margin-top:16px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff}.ios-install-guide strong{display:block;margin-bottom:6px}
 section{padding:60px 20px} section h2{font-size:36px;margin:0 0 10px}.section-sub{max-width:800px;color:var(--muted);font-size:18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 2px 10px rgba(15,23,42,.03)} .grid{display:grid;gap:20px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .info{color:var(--muted)} .highlight{background:#fff8db;border:2px solid var(--gold);padding:16px;border-radius:16px;text-align:center}.highlight .label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#a16207;font-weight:bold}.highlight .number{font-size:34px;font-weight:800;letter-spacing:.04em;color:var(--dark);margin-top:5px}
-.logo-card{text-align:center}.logo-card img{max-width:120px;width:100%;height:auto;object-fit:contain}.flyer-card{overflow:hidden;padding:0;display:flex;flex-direction:column;transition:transform .4s ease, box-shadow .4s ease;animation:flyerFloat 5s ease-in-out infinite}.flyer-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 18px 40px rgba(15,23,42,.14)}.flyer-card:nth-child(2){animation-delay:.4s}.flyer-card:nth-child(3){animation-delay:.8s}.flyer-card:nth-child(4){animation-delay:1.2s}.flyer-card:nth-child(5){animation-delay:1.6s}.flyer-card img{display:block;width:100%;height:420px;object-fit:contain;object-position:center;background:#f8fafc;padding:10px;transition:transform .5s ease, filter .5s ease}.flyer-card:hover img{transform:scale(1.04);filter:brightness(1.03)}.flyer-text{padding:16px}
+.logo-card{text-align:center}.logo-card img{max-width:120px;width:100%;height:auto;object-fit:contain}.flyer-track{display:grid;gap:20px;grid-template-columns:repeat(5,minmax(240px,1fr))}.flyer-card{overflow:hidden;padding:0;display:flex;flex-direction:column;transition:transform .4s ease, box-shadow .4s ease;animation:flyerFloat 5s ease-in-out infinite}.flyer-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 18px 40px rgba(15,23,42,.14)}.flyer-card:nth-child(2){animation-delay:.4s}.flyer-card:nth-child(3){animation-delay:.8s}.flyer-card:nth-child(4){animation-delay:1.2s}.flyer-card:nth-child(5){animation-delay:1.6s}.flyer-card img{display:block;width:100%;height:420px;object-fit:contain;object-position:center;background:#f8fafc;padding:10px;transition:transform .5s ease, filter .5s ease}.flyer-card:hover img{transform:scale(1.04);filter:brightness(1.03)}.flyer-text{padding:16px}
 .prayer-time{font-size:28px;font-weight:800}.contact-list p{margin:10px 0}.qr{width:100%;max-width:240px;border-radius:16px;border:1px solid var(--line);display:block;margin:auto}
 .form-grid{display:grid;gap:14px}.input,.textarea,.select{width:100%;padding:14px 16px;border:1px solid #cbd5e1;border-radius:12px;font-size:15px;background:#fff}.textarea{min-height:130px;resize:vertical}.notice{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:#ecfdf5;color:#166534;border:1px solid #86efac}
 .broadcast-banner{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff}
@@ -36,7 +36,7 @@ section{padding:60px 20px} section h2{font-size:36px;margin:0 0 10px}.section-su
 .floating-whatsapp{position:fixed;right:18px;bottom:18px;background:#25D366;color:white;text-decoration:none;padding:14px 18px;border-radius:999px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.15);z-index:99}
 .install-btn{display:none}
 footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;margin-top:20px}.footer-text{color:#cbd5e1}@keyframes flyerFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@media (max-width:900px){.hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}h1{font-size:34px}.hero p,.section-sub{font-size:16px}.flyer-card{animation:none}.flyer-card img{height:300px}.floating-whatsapp{display:none}.logo-wrap{align-items:flex-start}.side-card{padding:18px}.quick{grid-template-columns:1fr 1fr}.mobile-top-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.mobile-hide{display:none}.desktop-hide{display:block}.sticky-mobile-bar{position:fixed;left:12px;right:12px;bottom:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;z-index:100}.sticky-mobile-bar a{background:var(--dark);color:#fff;text-decoration:none;text-align:center;padding:12px 10px;border-radius:14px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.15)}nav{padding:10px 8px;white-space:nowrap;overflow-x:auto;text-align:left}nav a{font-size:13px;padding:8px 12px;margin:4px}.card{padding:18px}section{padding:42px 16px}header{padding:44px 16px}}
+@media (max-width:900px){.hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}h1{font-size:34px}.hero p,.section-sub{font-size:16px}.flyer-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.flyer-track .flyer-card{min-width:82%;scroll-snap-align:start;animation:none}.flyer-card img{height:300px}.floating-whatsapp{display:none}.logo-wrap{align-items:flex-start}.side-card{padding:18px}.quick{grid-template-columns:1fr 1fr}.mobile-top-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.mobile-hide{display:none}.desktop-hide{display:block}.ios-install-guide{display:block}.sticky-mobile-bar{position:fixed;left:12px;right:12px;bottom:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;z-index:100}.sticky-mobile-bar a{background:var(--dark);color:#fff;text-decoration:none;text-align:center;padding:12px 10px;border-radius:14px;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.15)}nav{padding:10px 8px;white-space:nowrap;overflow-x:auto;text-align:left}nav a{font-size:13px;padding:8px 12px;margin:4px}.card{padding:18px}section{padding:42px 16px}header{padding:44px 16px}}
 </style>
 </head>
 <body>
@@ -61,6 +61,10 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
       <div class="mobile-top-actions desktop-hide">
         <a class="button dark" href="#prayer-request">Send Request</a>
         <a class="button green" href="https://wa.me/233555031116?text=Hello%20Rehoboth%20Prayer%20Network.%20I%20need%20prayer%20support." target="_blank">WhatsApp Help</a>
+      </div>
+      <div class="ios-install-guide desktop-hide">
+        <strong>Install on iPhone</strong>
+        Open this site in Safari, tap the Share icon, then choose <em>Add to Home Screen</em>.
       </div>
     </div>
     <div class="side-card mobile-hide">
@@ -112,7 +116,7 @@ footer{background:var(--dark);color:white;padding:40px 20px;text-align:center;ma
   <div class="container">
     <h2>Global Prayer Times</h2>
     <p class="section-sub">Global Dawn Prayers begins at <strong>4:00 AM Ghana time</strong>. Here is how that time appears in other countries.</p>
-    <div class="grid grid-4">
+    <div class="flyer-track">
       <div class="card"><strong>Ghana</strong><div class="prayer-time">4:00 AM</div></div>
       <div class="card"><strong>United Kingdom</strong><div class="prayer-time">4:00 AM</div></div>
       <div class="card"><strong>USA (New York)</strong><div class="prayer-time">11:00 PM</div></div>
@@ -369,6 +373,10 @@ document.getElementById('partnerForm').addEventListener('submit', async function
 
 let deferredPrompt = null;
 const installBtn = document.getElementById('installAppBtn');
+const isiPhone = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+if (isiPhone && installBtn) {
+  installBtn.style.display = 'none';
+}
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
