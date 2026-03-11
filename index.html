@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="https://gquegwosvsjmijspfcdi.supabase.co/storage/v1/object/public/Bucket%20name:%20ministry-media/ChatGPT%20Image%20Mar%2010,%202026,%2012_08_16%20PM.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <title>Rehoboth Prayer Network</title>
-<meta name="google-site-verification" content="ZuOjlbyu71KLY-R99LT6__0jWhhzOwAzOxNJ86PvBBs" />
+<meta name="google-site-verification" content="H0KQR-5WLop1bbG_MEF3F1o_oTwO5ki8GFs6OPZx_GE" />
 <style>
 :root{--bg:#f5f7fb;--card:#ffffff;--text:#1e293b;--muted:#64748b;--dark:#0f172a;--line:#e2e8f0;--gold:#facc15;--green:#16a34a}
 *{box-sizing:border-box} html{scroll-behavior:smooth}
@@ -310,10 +310,6 @@ function showNotice(id){
   setTimeout(() => { el.style.display = 'none'; }, 4000);
 }
 
-function setAdminState(isLoggedIn){
-  document.getElementById('adminDashboard').style.display = isLoggedIn ? 'block' : 'none';
-  document.getElementById('adminLoginForm').style.display = isLoggedIn ? 'none' : 'grid';
-}
 
 document.getElementById('prayerForm').addEventListener('submit', async function(e){
   e.preventDefault();
@@ -368,30 +364,8 @@ document.getElementById('partnerForm').addEventListener('submit', async function
   showNotice('partnerNotice');
 });
 
-document.getElementById('adminLoginForm').addEventListener('submit', async function(e){
-  e.preventDefault();
-  document.getElementById('adminError').style.display = 'none';
-  const email = document.getElementById('adminEmail').value;
-  const password = document.getElementById('adminPassword').value;
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-  if(error){
-    document.getElementById('adminError').style.display = 'block';
-    return;
-  }
 
-  this.reset();
-  setAdminState(true);
-  showNotice('adminLoginNotice');
-});
-
-document.getElementById('adminLogoutBtn').addEventListener('click', async function(){
-  await supabase.auth.signOut();
-  setAdminState(false);
-});
-
-const { data: { session } } = await supabase.auth.getSession();
-setAdminState(!!session);
 
 let deferredPrompt = null;
 const installBtn = document.getElementById('installAppBtn');
